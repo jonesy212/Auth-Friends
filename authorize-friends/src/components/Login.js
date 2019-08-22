@@ -56,7 +56,7 @@ class Login extends React.Component {
                     {/* {touched.password && errors.password && (
                         <p className = 'error'>{errors.password}</p>
                     )} */}
-                    <button type='submit'>Enter</button>
+                    <button type='submit'>Add Friend</button>
                 </form>
             </div>
         )
