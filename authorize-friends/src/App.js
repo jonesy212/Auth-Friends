@@ -6,7 +6,8 @@ import Login from './components/Login';
 import PrivateRoute from './components/PrivateRoute'
 import Friends from './components/Friends'
 
-const ProtectRoute = Component => props => {
+const ProtectRoute = Component  => props => {
+   
   if (localStorage.getItem('token')) {
     return <Component {...props} />;
   } else{
@@ -19,9 +20,9 @@ function App() {
    
       <div className='App'>
         <Route path= '/login' 
-        Component={Login} />
+        component={Login} />
         <PrivateRoute path= '/friends'
-        Component={Friends} />
+        component={Friends} />
         {/* <Route path='/friends' component={ProtectedFriends}/> */}
       </div>
   );

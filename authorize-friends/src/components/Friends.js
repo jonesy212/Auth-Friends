@@ -41,7 +41,7 @@ class Friends extends React.Component{
                     <h2>{this.props.name}</h2>
                     <h2>{this.props.age}</h2>
                     <h2>{this.props.email}</h2>
-                    <button OnChange={this.updateHandler}>Update</button>
+                    <button onChange={this.updateHandler}>Update</button>
                 </div>
             )
         }
