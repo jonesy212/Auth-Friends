@@ -19,9 +19,9 @@ function App() {
    
       <div className='App'>
         <Route path= '/login' 
-        component={Login} />
+        Component={Login} />
         <PrivateRoute path= '/friends'
-        component={Friends} />
+        Component={Friends} />
         {/* <Route path='/friends' component={ProtectedFriends}/> */}
       </div>
   );
