@@ -1,40 +1,50 @@
 import React from 'react'
-import Friends from './Friends'
+
 import Loader from 'react-loader-spinner'
 import axiosWithAuth  from '../Utils/axiosWithAuth';
 
 
 export default class FriendsList extends React.Component {
-    constructor(){
-        super()
-        this.state = {
+        state = {
             friends: []
         }
-    }
+
     componentDidMount(){
-        axiosWithAuth.length('http://www.localhost5000/api/friends')
+        axiosWithAuth().get(`http://www.localhost5000/api/friends`)
         .then(res => {
+            console.log(res);
             this.setState({
-                friends: res.data
-            })
+                friends: res.data })
             .catch(error => {'Unable to access friends data.  Please try again'})
         })
     }
 
     render(){
         return(
-            <div>
-                <Friends />
-                {this.props.fetchingData && (
-                <div className="key spinner">
-                    <Loader type="Puff" 
-                            color="#204963" 
-                            height="60" 
-                            width="60" />
-                    <p>Loading Data</p>
+
+                <div>
+                    {this.state.friends.map(friend => 
+                    <div>
+                        <h2>{this.friend.name}</h2>
+                        <h2>{this.friend.age}</h2>
+                        <h2>{this.friend.email}</h2>}
+                    </div>
+                        )} 
                 </div>
-                )}
-            </div>
-        )
+            )
     }
-}
+
+
+
+
+
+
+/* {this.props.fetchingData && (
+                // <div className="key spinner">
+                //     <Loader type="Puff" 
+                //             color="#204963" 
+                //             height="60" 
+                //             width="60" />
+            
+        
+// <p>Loading Data</p> */}

@@ -1,10 +1,10 @@
 import axios from 'axios'
 
 const axiosWithAuth = ( ) => {
-    const token = localStorage.getItem('token')
+  
     return axios.create({
         hearders: {
-            Authorization: token
+            authorization: localStorage.getItem('token')
         }
     })
 }

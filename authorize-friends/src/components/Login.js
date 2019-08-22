@@ -25,18 +25,17 @@ class Login extends React.Component {
         event.preventDefault();
         axios.post('http://www.localhost:5000/api/login', this.state.credentials)
             .then(res => {
-    
+                console.log(res)
                 localStorage.setItem('token', res.data.payload)
+                this.history.push('./friends');
             })
             .catch(error => {
                 console.log('Please re-enter password and username')
             });
-            
-            
+      
     }
 
     render() {
-        
         return(
             
             <div>
@@ -53,10 +52,11 @@ class Login extends React.Component {
                         value={this.state.credentials.password}
                         onChange={this.handleChange}
                     />
+                    <button type='submit'>Login</button>
                     {/* {touched.password && errors.password && (
                         <p className = 'error'>{errors.password}</p>
                     )} */}
-                    <button type='submit'>Add Friend</button>
+                    
                 </form>
             </div>
         )
